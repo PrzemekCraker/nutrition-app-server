@@ -19,7 +19,7 @@ const productSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-  locations: [foodSchema],
+  nutrition: [foodSchema],
 });
 
 mongoose.model("Product", productSchema);
