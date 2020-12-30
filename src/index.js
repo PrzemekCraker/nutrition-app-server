@@ -16,18 +16,15 @@ app.use(authProductRoutes);
 const mongoUri =
   "mongodb+srv://admin:passwordpassword@cluster0.rnnno.mongodb.net/nutritionapp?retryWrites=true&w=majority";
 
-if (!mongoUri) {
-  throw new Error(`MongoURI was not supplied.`);
-}
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useCreateIndex: true,
 });
 mongoose.connection.on("connected", () => {
-  console.log("Connected to mongo instance");
+  console.log("Connected to mango instance");
 });
-mongoose.connection.on("error", (err) => {
-  console.error("Error connecting to mongo", err);
+mongoose.connection.on("error", () => {
+  console.log("Error connecting to mongo", err);
 });
 
 app.get("/", requireAuth, (req, res) => {
