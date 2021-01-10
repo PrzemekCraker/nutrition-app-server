@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
 
 const foodSchema = new mongoose.Schema({
-  calories: Number,
-  totalFat: Number,
-  saturatedFat: Number,
-  carbohydrate: Number,
-  sugars: Number,
-  fiber: Number,
-  protein: Number,
-  salt: Number,
+  name: String,
+  //calories: Number,
+  //totalFat: Number,
+  //saturatedFat: Number,
+  //carbohydrate: Number,
+  //sugars: Number,
+  //fiber: Number,
+  //protein: Number,
+  //salt: Number,
 });
 const productSchema = new mongoose.Schema({
   userId: {
@@ -19,7 +20,7 @@ const productSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
-  nutrition: [foodSchema],
+  product: [foodSchema],
 });
 
 mongoose.model("Product", productSchema);

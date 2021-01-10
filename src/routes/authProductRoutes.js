@@ -15,16 +15,14 @@ router.get("/products", async (req, res) => {
 });
 
 router.post("/products", async (req, res) => {
-  const { name, nutrition } = req.body;
+  const { name, product } = req.body;
 
-  if (!name || !nutrition) {
-    return res
-      .status(422)
-      .send({ error: "You must provide a name and nutrition" });
+  if (!name || !product) {
+    return res.status(422).send({ error: "You must provide a name" });
   }
 
   try {
-    const product = new Product({ name, nutrition, userId: req.user._id });
+    const product = new Product({ name, product, userId: req.user._id });
     await product.save();
     res.send(product);
   } catch (err) {
